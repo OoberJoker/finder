@@ -37,8 +37,7 @@ public class PageSelectionFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+
      * @return A new instance of fragment PageSelectionFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -97,10 +96,11 @@ public class PageSelectionFragment extends Fragment {
                 myStaticMembers.buttonPressedWas = "Add";
                 Intent intent = new Intent(v.getContext(), CategorySelection.class);
                 startActivityForResult(intent, 0);
+
             }
         });
 
-
+//randi
     }
 
     // TODO: Rename method, update argument and hook method into UI event
