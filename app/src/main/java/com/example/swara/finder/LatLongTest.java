@@ -19,7 +19,9 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
 public class LatLongTest extends AppCompatActivity implements ConnectionCallbacks,
-        OnConnectionFailedListener,com.google.android.gms.location.LocationListener,PageSelectionFragment.OnFragmentInteractionListener {
+        OnConnectionFailedListener,com.google.android.gms.location.LocationListener,
+        PageSelectionFragment.OnFragmentInteractionListener,
+        PostedServicesListFragment.OnFragmentInteractionListener{
 
     private static final String TAG = LatLongTest.class.getSimpleName();
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
@@ -41,6 +43,9 @@ public class LatLongTest extends AppCompatActivity implements ConnectionCallback
     private static int DISPLACEMENT = 10; // 10 meters
     public static double[] latNlong = new double[2];
     private double[] latitudeLongitude = new double[2];
+    public static boolean testButton = false;
+     android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+
     public LatLongTest(){
         Log.i("LatLongTest: "," Created in constructor");
 
@@ -70,17 +75,24 @@ public class LatLongTest extends AppCompatActivity implements ConnectionCallback
         }*/
         displayLocation();
 
-        PageSelectionFragment pageSelectionFragment = new PageSelectionFragment();
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(android.R.id.content, pageSelectionFragment)
-                .commit();
+    PageSelectionFragment pageSelectionFragment = new PageSelectionFragment();
+//        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 
+    fragmentManager.beginTransaction()
+            .add(android.R.id.content, pageSelectionFragment)
+            .commit();
 
 
 // togglePeriodicLocationUpdates();
 
 
+    }
+    public void replaceFragment(){
+        Log.i("ReplaceFragment", "Reached");
+       /* PostedServicesListFragment postedServicesListFragment = new PostedServicesListFragment();
+        fragmentManager.beginTransaction()
+                .replace(android.R.id.content, postedServicesListFragment)
+                .commit();*/
     }
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -142,7 +154,7 @@ public class LatLongTest extends AppCompatActivity implements ConnectionCallback
             // other 'case' lines to check for other
             // permissions this app might request
         }
-    };
+    }
 
     private void displayLocation() {
 
@@ -210,7 +222,7 @@ public class LatLongTest extends AppCompatActivity implements ConnectionCallback
 
             Log.i("Status: ", "cannot get the lat and long");
         }
-        return;
+
     }
 
     /**

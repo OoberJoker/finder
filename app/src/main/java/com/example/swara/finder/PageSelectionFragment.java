@@ -82,9 +82,10 @@ public class PageSelectionFragment extends Fragment {
         checkPostingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStaticMembers.buttonPressedWas = "CheckPosting";
-                Intent intent = new Intent(v.getContext(), PostedServicesList.class);
-                startActivityForResult(intent, 0);
+                LatLongTest.testButton=true;
+                LatLongTest latLongTest = new LatLongTest();
+                latLongTest.replaceFragment();
+
             }
         });
 
