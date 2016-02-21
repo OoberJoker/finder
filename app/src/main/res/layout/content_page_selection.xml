@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.swara.finder.PageSelection"
+    tools:showIn="@layout/activity_page_selection"
+    android:clickable="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What Would You Like To Do?"
+        android:id="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Check Your Postings"
+        android:id="@+id/checkPostingButton"
+        android:clickable="true"
+        android:background="#FFFFFF"
+        android:textColor="#0099CC"
+        android:layout_above="@+id/postButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="90dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Something"
+        android:id="@+id/postButton"
+        android:textColor="#0099CC"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="187dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <SearchView
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:id="@+id/searchView"
+        android:background="#f7f3f3"
+        android:gravity="fill_vertical|center_horizontal"
+
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/checkPostingButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/imageButton"
+        android:src="@android:drawable/ic_menu_set_as"
+        android:layout_alignTop="@+id/searchView"
+        android:layout_toRightOf="@+id/searchView"
+        android:layout_toEndOf="@+id/searchView" />
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#0099CC"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.swara.finder.CategorySelection"
+    tools:showIn="@layout/activity_category_selection">
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Delivery"
+        android:id="@+id/checkBox"
+        android:clickable="true"
+        android:button="@drawable/customdrawablecheckbox"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/checkBox2"
+        android:layout_alignStart="@+id/checkBox2" />
+
+      <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Maintenance"
+        android:id="@+id/checkBox2"
+          android:clickable="true"
+        android:button="@drawable/customdrawablecheckbox"
+
+          android:layout_below="@+id/checkBox"
+          android:layout_alignLeft="@+id/checkBox3"
+          android:layout_alignStart="@+id/checkBox3" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Information"
+        android:id="@+id/checkBox3"
+
+        android:clickable="true"
+        android:button="@drawable/customdrawablecheckbox"
+        android:layout_below="@+id/checkBox2"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Help"
+        android:id="@+id/checkBox4"
+        android:button="@drawable/customdrawablecheckbox"
+        android:layout_below="@+id/checkBox3"
+        android:layout_alignLeft="@+id/checkBox3"
+        android:layout_alignStart="@+id/checkBox3" />
+
+      <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Miscllenous"
+        android:id="@+id/checkBox5"
+          android:button="@drawable/customdrawablecheckbox"
+          android:checked="false"
+          android:layout_below="@+id/checkBox4"
+          android:layout_alignLeft="@+id/checkBox4"
+          android:layout_alignStart="@+id/checkBox4" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NextButtonInCategory"
+        android:id="@+id/NextButtonInCategory"
+        android:button="@drawable/customdrawablecheckbox"
+        android:background="#FFFFFF"
+        android:textColor="#0099CC"
+        android:layout_below="@+id/checkBox5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp" />
+
+
+</RelativeLayout>
