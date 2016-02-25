@@ -98,11 +98,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".PostedServicesList"></activity>
+        <activity android:name=".PostedServicesList" />
         <activity
             android:name=".PageSelection"
             android:label="@string/title_activity_page_selection"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

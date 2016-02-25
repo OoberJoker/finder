@@ -97,7 +97,7 @@ public class PostedServicesListFragment extends Fragment {
 //PostedServicesListFragment.this
         userAdapter = new UserCustomAdapter(getContext().getApplicationContext(), R.layout.row,
                 userArray);
-        userList = (ListView) getView().findViewById(R.id.listView);
+        userList = (ListView) getView().findViewById(R.id.listViewInFragment);
         userList.setItemsCanFocus(false);
         userList.setAdapter(userAdapter);
         /**

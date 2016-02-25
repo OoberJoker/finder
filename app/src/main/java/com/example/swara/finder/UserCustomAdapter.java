@@ -1,6 +1,5 @@
 package com.example.swara.finder;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -42,7 +41,7 @@ public class UserCustomAdapter extends ArrayAdapter<User> {
         UserHolder holder = null;
 
         if (row == null) {
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(layoutResourceId, parent, false);
             holder = new UserHolder();
             holder.textName = (TextView) row.findViewById(R.id.textView1);

@@ -13,13 +13,16 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:name="com.example.swara.finder.PageSelectionFragment"
-       tools:layout="@layout/fragment_page_selection" />
+       tools:layout="@layout/fragment_page_selection"
+       android:id="@+id/fragment2" />
 
-    <fragment
+    <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.swara.finder.PostedServicesListFragment"
-        tools:layout="@layout/fragment_posted_services_list" />
+        android:id="@+id/viewPager"
+         />
+
+
 
 
 </RelativeLayout>

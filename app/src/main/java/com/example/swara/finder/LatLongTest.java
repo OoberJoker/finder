@@ -5,6 +5,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
@@ -21,11 +22,12 @@ import com.google.android.gms.location.LocationServices;
 public class LatLongTest extends AppCompatActivity implements ConnectionCallbacks,
         OnConnectionFailedListener,com.google.android.gms.location.LocationListener,
         PageSelectionFragment.OnFragmentInteractionListener,
-        PostedServicesListFragment.OnFragmentInteractionListener{
+        PostedServicesListFragment.OnFragmentInteractionListener,PlusOneFragment.OnFragmentInteractionListener{
 
     private static final String TAG = LatLongTest.class.getSimpleName();
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
+
 
     private Location mLastLocation;
 
@@ -44,7 +46,8 @@ public class LatLongTest extends AppCompatActivity implements ConnectionCallback
     public static double[] latNlong = new double[2];
     private double[] latitudeLongitude = new double[2];
     public static boolean testButton = false;
-     android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+
+    private ViewPager viewPager= null;
 
     public LatLongTest(){
         Log.i("LatLongTest: "," Created in constructor");
@@ -56,48 +59,41 @@ public class LatLongTest extends AppCompatActivity implements ConnectionCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-     //   setContentView(R.layout.activity_lat_long_test);
+        setContentView(R.layout.activity_lat_long_test);
 
         Log.i("LatLongTest: ", " Created in onCreate");
         // First we need to check availability of play services
         if (checkPlayServices()) {
-
             // Building the GoogleApi client
             buildGoogleApiClient();
-
             createLocationRequest();
-
         }
-       /* InfoActivity infoActivity = new InfoActivity();
-        String userInput = infoActivity.getUserServiceInfo();
-        if(userInput != null) {
-            Log.i("passedVar: ", userInput);
-        }*/
         displayLocation();
 
-    PageSelectionFragment pageSelectionFragment = new PageSelectionFragment();
-//        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-
-    fragmentManager.beginTransaction()
-            .add(android.R.id.content, pageSelectionFragment)
-            .commit();
-
-
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        viewPager.setAdapter(new MyPagerAdapter(fragmentManager));
+        viewPager.setCurrentItem(0);
 // togglePeriodicLocationUpdates();
 
 
-    }
-    public void replaceFragment(){
-        Log.i("ReplaceFragment", "Reached");
-       /* PostedServicesListFragment postedServicesListFragment = new PostedServicesListFragment();
-        fragmentManager.beginTransaction()
-                .replace(android.R.id.content, postedServicesListFragment)
-                .commit();*/
-    }
-    @Override
-    public void onFragmentInteraction(Uri uri) {
+    }//get places
 
+    @Override
+    public void onFragmentInteraction(boolean uri) {
+        if(uri) {
+            viewPager = (ViewPager)findViewById(R.id.viewPager);
+            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+            viewPager.setAdapter(new MyPagerAdapter(fragmentManager));
+            viewPager.setCurrentItem(1);
+
+
+        }
     }
+
+
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -355,5 +351,17 @@ public class LatLongTest extends AppCompatActivity implements ConnectionCallback
     public  double[] getLatitudeLongitude(){
         return latitudeLongitude;
     }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+
+
+
+
+
+
 }
 
